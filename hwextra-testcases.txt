@@ -1,0 +1,35 @@
+Valid Malloc
+
+Input:
+char * ptr = (char *)malloc(200); 
+free(ptr);
+ptr = (char *)malloc(200); 
+free(ptr);
+
+Expected output: 
+successful malloc
+successful free
+successful malloc
+successful free
+----------------------------------------------------------
+Double Malloc Free
+
+Input:
+char *ptr = (char *)malloc(500);
+free(ptr);
+free(ptr);
+
+Expected output: 
+successful malloc
+successful free
+failed to free
+----------------------------------------------------------
+Non Allocated Free
+
+Input:
+int p;
+free(&p);
+
+Expected output:
+Failure to free non-allocated pointer.
+----------------------------------------------------------

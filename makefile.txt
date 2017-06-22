@@ -1,0 +1,23 @@
+COMPILER = gcc
+CCFLAGS = -g -Wall 
+
+all: myMalloc
+
+test: all 
+	./pa6
+
+myMalloc: malfree.o sorted_List.o test.o
+	$(COMPILER) $(CCFLAGS) -o pa6 malfree.o sorted_List.o test.o
+
+malfree.o: malfree.c malfree.h
+	$(COMPILER) $(CCFLAGS) -c malfree.c
+
+sorted_List.o: sorted_List.c sorted_List.h
+	$(COMPILER) $(CCFLAGS) -c sorted_List.c
+
+test.o: test.c
+	$(COMPILER) $(CCFLAGS) -c test.c
+
+clean:
+	rm -f pa6
+	rm -f *.o
